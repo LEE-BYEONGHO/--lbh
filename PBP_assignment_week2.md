@@ -1,150 +1,98 @@
-#include <stdio.h>
-#include <string.h>
+# 심화실습-1 보고서
 
-#define MAX 100
+<!-- 
+👨🏻‍💻 작성요령
+아래 양식에 맞춰 내용을 채워주세요.
 
-struct Schedule {
-    char title[50];
-    char date[20];
-    char time[20];
-    char desc[100];
-};
+⚠️ 주의 ⚠️
+단, 해시테그(`#`)로 시작하는 줄은 수정하지 마세요.
+제출 내용에서 해시테그로 시작하는 줄이 없어진 경우, 항목 누락으로 간주되어 감점이 있을 수 있습니다.
 
-struct Schedule list[MAX];
-int count = 0;
+👀 참고자료
+[1] GitHub, GitHub에서 쓰기 위한 빠른 시작, https://docs.github.com/ko/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
+[2] GitHub, Markdown 기본 문법, https://docs.github.com/ko/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+-->
 
-void addSchedule() {
-    if (count >= MAX) {
-        printf("일정 저장 공간이 가득 찼습니다.\n");
-        return;
-    }
+## 1. 제출 정보
 
-    printf("제목: ");
-    scanf(" %[^\n]", list[count].title);
+| 구분 | 내용 |
+| --- | --- |
+| 학년학기 | 2026학년도 1학기 |
+| 과목명(학수번호) | 프로그래밍기초와실습 (DASF004-00) |
+| 학번 | 2026310462 |
+| 이름 | 이병호 |
+| 과제명 | 심화실습-1 |
 
-    printf("날짜: ");
-    scanf(" %[^\n]", list[count].date);
+## 2. 현재 상태
 
-    printf("시간: ");
-    scanf(" %[^\n]", list[count].time);
+### 2.1 배운적 있는 언어 및 현재 수준
 
-    printf("설명: ");
-    scanf(" %[^\n]", list[count].desc);
+- `{C}` - `{하}`
+    - `상, 중, 하` 혹은 `해당없음`
+        - 상: 어떤 요구사항을 받아도 어떻게든 구현할 수 있다.
+        - 중: 기본적으로 어느정도 수준의 구현은 가능하지만 해당 언어의 고급기술 활용은 어렵다.
+        - 하: 가볍게 배워본 정도이다.
+- 예: Python - 상
+- 예: Java - 중
+- 예: C - 해당없음
 
-    count++;
-    printf("일정이 추가되었습니다.\n");
-}
+### 2.2 실습 환경
 
-void viewSchedule() {
-    if (count == 0) {
-        printf("저장된 일정이 없습니다.\n");
-        return;
-    }
+| 사용한AI 도구 | 개발환경 |
+| ChatGPT | GitHub Codespace |
+| 예: ChatGPT | 예: GitHub Codespace |
 
-    for (int i = 0; i < count; i++) {
-        printf("\n[%d]\n", i + 1);
-        printf("제목: %s\n", list[i].title);
-        printf("날짜: %s\n", list[i].date);
-        printf("시간: %s\n", list[i].time);
-        printf("설명: %s\n", list[i].desc);
-    }
-}
+## 3. 코드 리뷰 결과
 
-void editSchedule() {
-    int num;
+### 3.1 AI가 생성한 코드를 얼마나 이해할 수 있었는지?
 
-    if (count == 0) {
-        printf("저장된 일정이 없습니다.\n");
-        return;
-    }
+- 이해도: 0 ~ 10점 (0점: 전혀 이해하지 못함, 10점: 완전히 이해함)
+- 어떤식으로 동작하는 코드로 이해했는지 자유롭게 서술
 
-    viewSchedule();
+### 3.2 최초에 입력한 프롬프트와 그 결과물에 대한 평가
 
-    printf("\n수정할 일정 번호: ");
-    scanf("%d", &num);
+#### 최초 프롬프트
 
-    if (num < 1 || num > count) {
-        printf("잘못된 번호입니다.\n");
-        return;
-    }
+```
+사용한 프롬프트를 복사 & 붙여넣기
+```
 
-    num--;
+#### 최종 코드 및 실행 결과
 
-    printf("새 제목: ");
-    scanf(" %[^\n]", list[num].title);
+> 본 문서 가장 아래 `부록` 섹션에서 `최종 결과물 코드`와 `실행 결과`에 각각 코드 및 실행 결과를 복사 & 붙여넣기로 첨부합니다.
 
-    printf("새 날짜: ");
-    scanf(" %[^\n]", list[num].date);
+### 3.3 최종 결과물을 얻기까지의 경험
 
-    printf("새 시간: ");
-    scanf(" %[^\n]", list[num].time);
+- 서술형으로 자유롭게 작성
 
-    printf("새 설명: ");
-    scanf(" %[^\n]", list[num].desc);
+## 4. 결론
 
-    printf("일정이 수정되었습니다.\n");
-}
+- 서술형으로 자유롭게 작성
+- 코드 분석 과정에서 어려웠던 점
+- AI 시대 프로그래밍 학습에 대한 개인적인 견해나 느낀 점
 
-void deleteSchedule() {
-    int num;
+## 참고문헌
 
-    if (count == 0) {
-        printf("저장된 일정이 없습니다.\n");
-        return;
-    }
+- 사용한 AI 도구, 참고한 자료 등
 
-    viewSchedule();
+---
+---
 
-    printf("\n삭제할 일정 번호: ");
-    scanf("%d", &num);
+## 부록
 
-    if (num < 1 || num > count) {
-        printf("잘못된 번호입니다.\n");
-        return;
-    }
+### 실행 결과
 
-    for (int i = num - 1; i < count - 1; i++) {
-        list[i] = list[i + 1];
-    }
+- 프로그램의 주요 기능 실행 화면을 터미널에서 텍스트를 복사&붙여넣기로 작성
+- 프로그램 실행에 실패했다면, 실패와 관련된 내용을 담아도 좋음
 
-    count--;
-    printf("일정이 삭제되었습니다.\n");
-}
+```bash
 
-int main() {
-    int menu;
+```
 
-    while (1) {
-        printf("\n--- 일정 관리 프로그램 ---\n");
-        printf("1. 일정 추가\n");
-        printf("2. 일정 조회\n");
-        printf("3. 일정 수정\n");
-        printf("4. 일정 삭제\n");
-        printf("5. 종료\n");
-        printf("메뉴 선택: ");
+### 최종 결과물 코드
 
-        scanf("%d", &menu);
+- AI가 생성한 전체 코드 첨부
 
-        switch (menu) {
-            case 1:
-                addSchedule();
-                break;
-            case 2:
-                viewSchedule();
-                break;
-            case 3:
-                editSchedule();
-                break;
-            case 4:
-                deleteSchedule();
-                break;
-            case 5:
-                printf("프로그램 종료\n");
-                return 0;
-            default:
-                printf("잘못된 입력입니다.\n");
-        }
-    }
+```c
 
-    return 0;
-}
+```
